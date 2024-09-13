@@ -1,0 +1,130 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@mixin border-hour-markers {
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    border-top: 0;
+    border-bottom: 0;
+    width: 5px;
+}
+
+@mixin hour-directions {
+    display: block;
+    width: 4px;
+    height: 115px;
+    border: 1px solid black;
+    position: absolute;
+    bottom: 8px;
+    left: 4.5px;
+    transform-origin: bottom center;
+    border-radius: 5px;
+    background-color: aqua;
+    z-index: 2;
+}
+
+main {
+    width: 100;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .watch-border {
+        width: 310px;
+        height: 310px;
+        border: 1px solid black;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        background-color: aqua;
+        .watch-box {
+            border: 1px solid black;
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            z-index: 3;
+            background-color: aliceblue;
+            position: relative;
+
+            .watch-timer-box {
+                width: 120px;
+                height: 30px;
+                border: 1px solid black;
+                position: absolute;
+                top: 70px;
+                left: 90px;
+            }
+            .second-marker {
+                width: 1px;
+                height: 10px;
+                border: 1px solid black;
+                position: absolute;
+                transform-origin: center bottom;
+            }
+
+            .hour-markers {
+                border: 2px solid black;
+                width: 1px;
+                height: 20px;
+                position: absolute;
+                top: 3px;
+                left: 147px;
+            }
+
+            .arrow-center-cap {
+                position: absolute;
+                width: 17px;
+                height: 17px;
+                background-color: antiquewhite;
+                border-radius: 50%;
+                top: 142px;
+                left: 145px;
+                z-index: 10;
+                border: 1px solid black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+            }
+
+            .arrow-center {
+                position: relative;
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                top: 142px;
+                left: 145px;
+            }
+
+            .second-hand {
+                @include hour-directions();
+            }
+
+            .minute-hand {
+                @include hour-directions();
+                height: 110px;
+            }
+
+            .hours-hand {
+                @include hour-directions();
+                height: 85px;
+            }
+
+            .date {
+                position: absolute;
+                width: 20px;
+                height: 22px;
+                border: 1px solid black;
+                top: 140px;
+                right: 50px;
+                text-align: center;
+            }
+        }
+    }
+}
